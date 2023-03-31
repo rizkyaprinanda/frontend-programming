@@ -1,0 +1,154 @@
+/* Small Screen */
+.container {
+    margin: 1rem;
+    background-color: #fff;
+}
+
+.form__addmovie {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.form__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+
+.form__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+}
+
+.form__right {
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.form__title {
+    color: #4361ee;
+    font-size: 2.44rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    
+}
+
+.form__label__title {
+    display: block;
+    font-size: 1.59rem;
+    font-weight: bold;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+.form__input__title {    
+    width: 80%;
+    padding: 0.5rem;
+    border: 1px solid #4361ee;
+    border-radius: 10px;
+    font-size: 1.59rem;
+    margin-bottom: 2rem;
+}
+
+.form__date {
+    margin-bottom: 1rem;
+}
+
+.form__label__date {
+    display: block;
+    font-size: 1.59rem;
+    font-weight: bold;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+.form__input__date {
+    width: 80%;
+    padding: 0.5rem;
+    border: 1px solid #4361ee;
+    border-radius: 10px;
+    font-size: 1.59rem;
+    margin-bottom: 2rem;
+}
+
+.form__description {
+    margin-bottom: 1rem;
+}
+
+.form__label__description {
+    display: block;
+    font-size: 1.59rem;
+    font-weight: bold;
+    color: #64748b;
+}
+
+.form__input__description {
+    width: 80%;
+    padding: 0.5rem;
+    border: 1px solid #4361ee;
+    border-radius: 10px;
+    font-size: 1.59rem;
+}
+
+.form__button {
+    width: 80%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: #4361ee;
+    color: #fff;
+    font-size: 1.59rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.form__button:hover {
+    background-color: #3e8e41;
+}
+
+/* Medium Screen */
+@media (min-width: 768px) {
+    /*
+    * Nothing to do here
+    */
+    .form__addmovie {
+        margin: 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .form__left {
+        flex-basis: 60%;
+        align-items: center;
+    }
+
+    .form__right {
+        flex-basis: 40%;
+        align-items: center;
+    }
+
+    .form__input__title, .form__input__date, 
+    .form__input__description, .form__button {
+        width: 100%;
+    }
+
+}
+
+/* Large Screen */
+@media (min-width: 992px) {
+    .container {
+        max-width: 1200px;
+        margin: 3rem auto;
+        align-items: center;
+    }
+
+}
