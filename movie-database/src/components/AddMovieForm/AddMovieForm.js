@@ -14,14 +14,14 @@ function AddMovieForm() {
         </div>
         <div className={styles.form__right}>
           <div className={styles.form__title}>Add Movie</div>
-            <label className={styles.form__label__title} for="form-title">Title</label>
+            <label className={styles.form__label__title} htmlFor="form-title">Title</label>
             <input className={styles.form__input__title} type="text" id="form-title"/>          
           <div className={styles.form__date}>
-            <label className={styles.form__label__date} for="form-date">Year</label>
+            <label className={styles.form__label__date} htmlFor="form-date">Year</label>
             <input className={styles.form__input__date} type="text" id="form-date" />
           </div>
           <div className={styles.form__description}>
-            <label className={styles.form__label__description} for="form-description">Description</label>
+            <label className={styles.form__label__description} htmlFor="form-description">Description</label>
             <textarea className={styles.form__input__description} id="form-description" rows="3"></textarea>
           </div>
           <button className={styles.form__button}>Submit</button>
