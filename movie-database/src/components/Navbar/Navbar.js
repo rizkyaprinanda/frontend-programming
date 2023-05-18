@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from "./Navbar.module.css";
 import menuIcon from "./navbar.svg";
+import { Link } from 'react-router-dom';
 
 function Navbar(){
   const [showMenu, setShowMenu] = useState(false);
@@ -21,11 +22,21 @@ function Navbar(){
       </nav>
         <div className={styles.navbar__right}>
         <ul className={`${styles.navbar__list} ${showMenu ? styles.show : ''}`}>
-            <li className={styles.navbar__item}>Home</li>
-            <li className={styles.navbar__item}>Add Movie</li>
-            <li className={styles.navbar__item}>Popular</li>
-            <li className={styles.navbar__item}>Now Playing</li>
-            <li className={styles.navbar__item}>Top Rated</li>
+            <li className={styles.navbar__item}>
+              <Link to="/">Home</Link>
+            </li>
+            <li className={styles.navbar__item}>
+              <Link to ="/movie/create">Add Movie</Link>
+            </li>
+            <li className={styles.navbar__item}>
+              <Link to="/movie/popular">Popular</Link>
+            </li>
+            <li className={styles.navbar__item}>
+              <Link to="/movie/now">Now Playing</Link>
+            </li>
+            <li className={styles.navbar__item}>
+              <Link to="/movie/top">Top Rated</Link>
+            </li>
         </ul>
         </div>
     </div>

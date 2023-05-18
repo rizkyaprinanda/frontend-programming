@@ -6,44 +6,84 @@ import Alert from '../Alert/Alert';
 function AddMovieForm(props) {
   // destructing props 
   const { movies, setMovies } = props;  
+  
+  // Membuat State object
+  const [formData, setFormData] = useState({
+    title: "",
+    date: "",
+    poster: "",
+    type: "",
+  });
 
-  const [inputs, setInputs] = useState([
-    {
-      title: "",
-      error: false,
-    },
-    {
-      date: "",
-      error: false,
-    },
-    {
-      poster:"",
-      error:false,
-    },
-    {
-      type:"",
-      error:false,
-    }    
-  ]);
+  const [error, setError] = useState({
+    title: false,
+    date: false,
+    poster: false,
+    type: false,
+  });
 
+  const { title, date, poster, type } = formData;
 
-  // membuat fungsi handleTitle
+  // membuat fungsi handleChange untuk handle semua input form
   function handleChange(e) {
+    const { name, value } = e.target;
     
-    const { id, value } = e.target;
-    const newInputs = [...inputs];    
+    setFormData ({
+      ...formData,
+      [name]: value,
+    });
     
-    if (id === "title") {
-      newInputs[0].title = value;      
-    } else if (id === "date") {      
-      newInputs[1].date = value;
-    } else if (id === "poster") {
-      newInputs[2].poster = value;
-    } else if (id === "type") {
-      newInputs[3].type = e.target.value;
+}
+
+// membuat fungsi validate untuk handle semua error
+  function validate() {
+    const fields = Object.keys(formData);
+    let isValid = true;
+
+    for (const field of fields) {
+      if (formData[field] === "") {
+        setError(function (error) {
+          return {
+            ...error,
+            [field]: true,
+          };
+        });
+        isValid = false;
+      } else {
+        setError(function (error) {
+          return {
+            ...error,
+            [field]: false,
+          };
+        });
+      }
     }
 
-    setInputs(newInputs);
+    return isValid;
+  }
+
+  function resetForm() {
+    const initialFormData = {
+      title: "",
+      date: "",
+      poster: "",
+      type: "",
+    };
+
+    setFormData(initialFormData);
+  }
+
+
+  function addMovie(){
+    const movie = {
+        id:nanoid(),
+        title: title,
+        year: date,
+        type: type,
+        poster: poster
+      }
+      setMovies([ ...movies, movie]);
+      resetForm();
   }
 
   // Handle form ketika disubmit
@@ -51,58 +91,7 @@ function AddMovieForm(props) {
     // Mencegah perilaku default: refresh
     e.preventDefault();
 
-    const [{title}, {date}, {poster}, {type}] = inputs;
-    
-    if (title === "" || date === "" || poster === "" || type === "") {
-      setInputs([
-        {
-          ...inputs[0],
-          error: title === "",
-        },
-        {
-          ...inputs[1],
-          error: date === "",
-        },
-        {
-          ...inputs[2],
-          error: poster === "",
-        },
-        {
-          ...inputs[3],
-          error: type === "",
-        },
-      ]);
-    } else {
-      // Siapkan movie yang ingin diinput
-      const movie = {
-        id:nanoid(),
-        title:inputs[0].title,
-        year:inputs[1].date,
-        type: inputs[3].type,
-        poster: inputs[2].poster
-      }
-      setMovies([ ...movies, movie]);
-      console.log(movie);
-      console.log(inputs[3].type);
-      setInputs([
-        {
-          ...inputs[0],
-          error: false,
-        },
-        {
-          ...inputs[1],
-          error: false,
-        },
-        {
-          ...inputs[2],
-          error: false,
-        },
-        {
-          ...inputs[3],
-          error: false,
-        },
-      ]);
-    }
+    validate() && addMovie();
 
   }
 
@@ -128,13 +117,14 @@ function AddMovieForm(props) {
                 id="title" 
                 className={styles.form__input} 
                 type="text" 
-                value={inputs[0].title}                
+                value={title}    
+                name="title"       
               />
               {/*
               Jika error title true: muncul error  
               Jika tidak munculkan string kosong
               */} 
-              {inputs[0].error && <Alert>Title harus diisi!</Alert>}
+              {error.title && <Alert>Title harus diisi!</Alert>}
                     
             </div>  
             <div className={styles.form__group}>
@@ -146,9 +136,10 @@ function AddMovieForm(props) {
                 id="date" 
                 className={styles.form__input} 
                 type="number" 
-                value={inputs[1].date}               
+                value={date}   
+                name="date"            
               />
-              {inputs[1].error && <Alert>Date harus diisi!</Alert>}              
+              {error.date && <Alert>Date harus diisi!</Alert>}              
             </div>
             <div className={styles.form__group}>
               <label className={styles.form__label} htmlFor="poster">
@@ -159,9 +150,10 @@ function AddMovieForm(props) {
                 id="poster" 
                 className={styles.form__input} 
                 type="text"
-                value={inputs[2].poster}            
+                value={poster}    
+                name="poster"        
               />
-              {inputs[2].error && <Alert>Gambar harus diisi!</Alert>}                            
+              {error.poster && <Alert>Gambar harus diisi!</Alert>}                            
             </div>
             <div className={styles.form__group}>
               <label className={styles.form__label} htmlFor="type">
@@ -169,14 +161,14 @@ function AddMovieForm(props) {
               </label>
               <select 
               onChange={handleChange}
-              name="" id="type" 
+              name="type" id="type" 
               className={styles.form__input} 
-              value={inputs[3].type}>
+              value={type} >
                 <option value="">-- Select a type --</option>
                 <option value="action">Action</option>
                 <option value="horror">Horror</option>
-              </select>   
-              {inputs[3].error && <Alert>Type is required</Alert>}                        
+              </select>      
+              {error.type && <Alert>Kategori harus dipilih!</Alert>}                     
             </div>
             <div>
               <button className={styles.form__button}>Add Movie</button>

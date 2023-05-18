@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/rizkyaprinanda/frontend-programming/issues"
   },
-  "homepage": "https://github.com/rizkyaprinanda/frontend-programming#readme"
+  "homepage": "https://github.com/rizkyaprinanda/frontend-programming#readme",
+  "dependencies": {
+    "react-router-dom": "^6.11.1"
+  }
 }
