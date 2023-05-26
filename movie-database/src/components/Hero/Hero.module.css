@@ -45,7 +45,7 @@
     background-color: #3e8e41;
 }
 
-.hero__image {
+.hero__images {
     max-width: 100%;
     height: auto;
     border-radius: 25px;
@@ -70,14 +70,20 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        text-align: left;
+        text-align: center;
     }
 
     .hero__left {
         flex-basis: 40%;
+        text-align: left;
+    }
+
+    .hero__description {
+        text-align: justify;
     }
 
     .hero__right {
         flex-basis: 60%;
+        text-align: right;
     }
 }
