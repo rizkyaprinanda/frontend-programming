@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './AddMovieForm.module.css'
 import { nanoid } from 'nanoid';
 import Alert from '../Alert/Alert';
+import Button from '../ui/Button';
 
 function AddMovieForm(props) {
   // destructing props 
@@ -171,7 +172,7 @@ function AddMovieForm(props) {
               {error.type && <Alert>Kategori harus dipilih!</Alert>}                     
             </div>
             <div>
-              <button className={styles.form__button}>Add Movie</button>
+              <Button variant="secondary" full>Add Movie</Button>
             </div>        
           </form>
         </div>

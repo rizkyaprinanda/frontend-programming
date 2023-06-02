@@ -1,21 +1,19 @@
-import styles from "./Movie.module.css"
+import StyledMovie from "./Movie.styled";
 
 function Movie(props){
     // Destructing object props
     const { movie } = props;
 
     return(
-        <div className={styles.movie}>
-            <img 
-                className={styles.movie__image}
+        <StyledMovie>
+            <img                 
                 src={movie.poster}
-                alt=""
-                
+                alt=""                
             />
-            <h3 className={styles.movie__title}>{movie.title}</h3>
-            <p className={styles.movie__date}>{movie.year}</p>
-        </div>
-    )
+            <h3>{movie.title}</h3>
+            <p>{movie.year}</p>
+        </StyledMovie>
+    );
 }
 
 export default Movie;

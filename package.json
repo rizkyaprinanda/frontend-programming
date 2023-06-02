@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/rizkyaprinanda/frontend-programming#readme",
   "dependencies": {
-    "react-router-dom": "^6.11.1"
+    "react-router-dom": "^6.11.1",
+    "styled-components": "^5.3.11"
   }
 }

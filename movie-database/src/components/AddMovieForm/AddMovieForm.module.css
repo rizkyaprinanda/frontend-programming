@@ -11,7 +11,7 @@
 }
 
 .form__group {
-    margin: 1rem;
+    margin: 0rem;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -52,6 +52,11 @@
     border: 1px solid #4361ee;
     border-radius: 10px;
     font-size: 1.59rem;
+    margin-bottom: 1rem;
+}
+
+.form__input option {
+    font-size: 1rem;
 }
 
 .form__button {
@@ -103,7 +108,7 @@
     } 
 
     .form__group {
-        margin: 1rem;
+        margin: 0rem;
     }
 
     
