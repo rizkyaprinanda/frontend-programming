@@ -1,3 +1,7 @@
 .env
 node_modules
 *.solution.js
+pertemuan-2/
+pertemuan-3/
+task/
+.gitignore
