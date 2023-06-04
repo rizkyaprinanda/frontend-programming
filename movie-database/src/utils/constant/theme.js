@@ -39,7 +39,11 @@ const theme = {
         size: "1.953rem",
         color: "secondary",
     },
-
+    
+    h4: {
+        size: "1.563rem",
+        color: "primary",
+    },
     
 
 };

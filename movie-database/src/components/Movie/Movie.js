@@ -1,3 +1,5 @@
+import Heading from "../ui/Heading";
+import Paragraph from "../ui/Paragraph";
 import StyledMovie from "./Movie.styled";
 
 function Movie(props){
@@ -7,11 +9,11 @@ function Movie(props){
     return(
         <StyledMovie>
             <img                 
-                src={movie.poster}
-                alt=""                
+                src={movie.poster || `http://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                alt={movie.title}                
             />
-            <h3>{movie.title}</h3>
-            <p>{movie.year}</p>
+            <Heading as="h3" align="center" color="primary">{movie.title}</Heading>
+            <Paragraph>{movie.year || movie.release_date}</Paragraph>
         </StyledMovie>
     );
 }

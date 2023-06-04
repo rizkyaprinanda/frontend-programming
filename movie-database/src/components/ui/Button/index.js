@@ -20,6 +20,8 @@ const Button = styled.button`
     font-size: ${({ size, theme }) => theme.fontSize[size] ? theme.fontSize[size]: size || theme.fontSize.md};
     padding: ${({size, theme}) => theme.padding[size] || theme.padding.md};
 
+    text-decoration: none;
+
 `
 
 export default Button;

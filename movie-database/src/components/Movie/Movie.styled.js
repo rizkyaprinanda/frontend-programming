@@ -10,11 +10,7 @@ const StyledMovie = styled.div`
         margin-bottom: 1rem;
     }
 
-    h3 {
-        color: #4361ee;
-        font-size: 1.95rem;
-        margin-bottom: 0.5rem;
-    }
+   
 
     p {
         color: #64748b;

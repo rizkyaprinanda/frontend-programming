@@ -45,16 +45,14 @@ img {
     }
 
     .left {
-        flex-basis: 45%;
+        flex-basis: 40%;
         text-align: left;
     }
 
-    p {
-        text-align: justify;
-    }
+    
 
     .right {
-        flex-basis: 55%;
+        flex-basis: 60%;
         text-align: right;
     }
 }

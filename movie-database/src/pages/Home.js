@@ -4,6 +4,7 @@ import AddMovieForm from "../components/AddMovieForm/AddMovieForm";
 import Hero from "../components/Hero/Hero";
 import Movies from "../components/Movies/Movies";
 import data from "../utils/constant/data";
+import Heading from "../components/ui/Heading";
 // import Counter from "../components/Counter";
 
 /**
@@ -22,6 +23,7 @@ function Home(){
     return(
         <>
             <Hero />
+            <Heading as="h2" align="center">Latest Movie</Heading>
             <Movies movies={movies} setMovies={setMovies} />
             <AddMovieForm movies={movies} setMovies={setMovies} />
         </>
