@@ -10,6 +10,9 @@ const StyledMovie = styled.div`
         margin-bottom: 1rem;
     }
 
+    a {
+        text-decoration: none;
+    }
    
 
     p {

@@ -1,10 +1,11 @@
 import Movie from '../Movie/Movie';
+import Heading from '../ui/Heading';
 import styles from './Movies.module.css';
 import { nanoid } from 'nanoid';
 
 function Movies(props) {
     // destructing props
-    const { movies, setMovies } = props;
+    const { title='Latest Movies', movies, setMovies } = props;
 
     // Buat fungsi tambah film
     // dijalankan ketika tombol diklik
@@ -24,6 +25,7 @@ function Movies(props) {
     return (
         <div className={styles.container}>
             <section className={styles.movies}>
+                <Heading as="h2" align="center">{title}</Heading>
                 <div className={styles.movie__container}>
                     {  /*
                         * Looping data movies: map.

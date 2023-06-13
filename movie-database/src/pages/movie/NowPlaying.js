@@ -1,18 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Heading from "../../components/ui/Heading";
 import Hero from "../../components/Hero/Hero";
 import Movies from "../../components/Movies/Movies";
+import ENDPOINTS from "../../utils/constant/endpoints";
 
 function NowPlayingMovie() {
     const [movies, setMovies] = useState([]);
 
-    const API_KEY= process.env.REACT_APP_API_KEY;
-    const URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`;
-
     async function fetchNowPlayingMovies() {
         // Melakukan side effect: fetch data movie (api
-        const response = await axios(URL);
+        const response = await axios(ENDPOINTS.NOW);
         setMovies(response.data.results);
     };
 
@@ -24,8 +21,7 @@ function NowPlayingMovie() {
     return (
         <div>            
             <Hero />
-            <Heading as="h2" align="center">Now Playing Movie</Heading>          
-            <Movies movies={movies} setMovies={setMovies} />
+            <Movies movies={movies} setMovies={setMovies} title="Now Playing Movie"/>
         </div>
     )
 }
