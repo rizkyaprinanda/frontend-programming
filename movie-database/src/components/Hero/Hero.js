@@ -6,20 +6,20 @@ import Heading from "../ui/Heading";
 import StyledHero from "./Hero.styled";
 import Paragraph from "../ui/Paragraph";
 import axios from "axios";
+import ENDPOINTS from "../../utils/constant/endpoints";
 
 function Hero() {
     // Membuat state movie
     const [movie, setMovie] = useState("");
-    const API_KEY = process.env.REACT_APP_API_KEY;
     const genres = movie && movie.genres.map((genre) => genre.name).join(", ");
-    const trailer = movie && `https://www.youtube.com/watch?v=${movie.videos.results[0].key}`;
+    const trailer = movie && ENDPOINTS.VIDEO(movie);
     const rating = movie && movie.vote_average.toFixed(1);
+    
 
     // mengambil data dari trending movie
     async function fetchTrendingMovie() {
-        const URL = `http://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
         // Melakukan side effect: fetch data movie (api)        
-        const response = await axios(URL);
+        const response = await axios(ENDPOINTS.HERO);
         const data = response.data.results;
         return data[Math.floor(Math.random() * data.length)];
         // eslint-disable-next-line
@@ -29,10 +29,7 @@ function Hero() {
     async function getDetailMovie() {
         const trendingMovie = await fetchTrendingMovie();
         const id = trendingMovie.id;
-
-        const URL = `http://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`;
-
-        const response = await axios(URL);
+        const response = await axios(ENDPOINTS.DETAIL(id));
         
         setMovie(response.data);
         
@@ -60,7 +57,7 @@ function Hero() {
                 </div>
                 <div className="right">
                     <img                    
-                    src= {`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                    src= {`${ENDPOINTS.BACKDROP(movie)}`}
                     alt= "placeholder"
                     />
                 </div>

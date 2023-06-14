@@ -1,3 +1,4 @@
+import ENDPOINTS from "../../utils/constant/endpoints";
 import Heading from "../ui/Heading";
 import Paragraph from "../ui/Paragraph";
 import StyledMovie from "./Movie.styled";
@@ -10,7 +11,7 @@ function Movie(props){
     return(
         <StyledMovie>
             <img                 
-                src={movie.poster || `http://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                src={movie.poster || `${ENDPOINTS.POSTER(movie)}`}
                 alt={movie.title}                
             />
             <Link to={`/movie/${movie.id}`}>

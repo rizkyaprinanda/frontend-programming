@@ -16,7 +16,7 @@ const Button = styled.button`
         display: block;
         width: 100%;        
     `}
-    text-align:left;
+    text-align:center;
 
     font-size: ${({ size, theme }) => theme.fontSize[size] ? theme.fontSize[size]: size || theme.fontSize.md};
     padding: ${({size, theme}) => theme.padding[size] || theme.padding.md};

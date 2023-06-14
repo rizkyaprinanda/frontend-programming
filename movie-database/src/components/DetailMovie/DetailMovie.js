@@ -11,7 +11,7 @@ function DetailMovie() {
     const params = useParams();
     const [movie, setMovie] = useState("");
     const genres = movie && movie.genres.map((genre) => genre.name).join(", ");
-    const trailer = movie && movie.videos.results.length > 0 ? `https://www.youtube.com/watch?v=${movie.videos.results[0].key}` : "";
+    const trailer = movie && movie.videos.results.length > 0 ? ENDPOINTS.VIDEO(movie) : "";
     const rating = movie && movie.vote_average.toFixed(1);
 
     async function fetchDetailMovie() {
@@ -32,7 +32,7 @@ function DetailMovie() {
             <section>
                 <div className="left">
                     <img 
-                        src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                        src={`${ENDPOINTS.POSTER(movie)}`}
                         alt=""
                     />
                 </div> 
@@ -40,7 +40,8 @@ function DetailMovie() {
                     <Heading as="h2">{movie.title}</Heading>
                     <Heading as="h3">
                     Genre: {genres}</Heading>
-                    <Heading as="h4">Rating: {rating}/10</Heading>
+                    <Heading as="h4">
+                    Rating: {rating}/10</Heading>
                     <Paragraph align="justify">
                         {movie.overview}
                     </Paragraph>
