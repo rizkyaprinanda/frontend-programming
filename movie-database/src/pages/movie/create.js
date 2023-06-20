@@ -1,7 +1,10 @@
+import AddMovieForm from "../../components/AddMovieForm/AddMovieForm";
+
+
 function CreateMovie() {
     return (
         <div>            
-            <h2>Create Movie</h2>            
+            <AddMovieForm />     
         </div>
     )
 }

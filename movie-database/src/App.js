@@ -5,20 +5,14 @@ import TopRatedMovie from "./pages/movie/TopRated";
 import NowPlayingMovie from "./pages/movie/NowPlaying";
 import CreateMovie from "./pages/movie/create";
 import Layout from "./Layout";
-// Import Theme Provider
 import { ThemeProvider } from "styled-components";
 import theme from "./utils/constant/theme";
 import GlobalStyle from "./components/GlobalStyle";
 import PopularMovie from "./pages/movie/Popular";
 import Detail from "./pages/movie/Detail";
 
-
 function App() {
-    /**
-     * Menampilkan Halaman Home 
-     * Tag div bisa diganti dengan tag <>
-     * Tag <> adalah React Fragment
-     */
+    
     return (
         <>
         <ThemeProvider theme={theme}>

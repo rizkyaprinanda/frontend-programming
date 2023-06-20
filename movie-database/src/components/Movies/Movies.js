@@ -1,27 +1,13 @@
 import Movie from '../Movie/Movie';
 import Heading from '../ui/Heading';
 import styles from './Movies.module.css';
-import { nanoid } from 'nanoid';
+import { useSelector } from 'react-redux';
 
 function Movies(props) {
     // destructing props
-    const { title='Latest Movies', movies, setMovies } = props;
-
-    // Buat fungsi tambah film
-    // dijalankan ketika tombol diklik
-    function tambahFilm() {
-        const movie = {
-            id: nanoid(4),
-            title: "Spiral Jigsaw",
-            year: "2021",
-            type: "Movie",
-            poster: "https://picsum.photos/300/400",
-        };
-        
-        // Menambahkan movie ke state movies
-        setMovies([...movies, movie]);
-    }
-
+    const { title='Latest Movies' } = props;
+    const movies = useSelector((store) => store.movies.movies);
+    
     return (
         <div className={styles.container}>
             <section className={styles.movies}>
@@ -37,8 +23,7 @@ function Movies(props) {
                         })
                     }
                 </div>
-                {/* Menambahkan event on Click */}
-                <button onClick={tambahFilm}>Add Movie</button>
+                
             </section>
         </div>
     );
