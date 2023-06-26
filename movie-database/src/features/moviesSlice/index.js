@@ -21,7 +21,6 @@ const moviesSlice = createSlice({
             // addMovie to movies
             state.movies.push(action.payload);
         },
-        deleteMovie() {},
     },
 });
 
