@@ -8,9 +8,15 @@ const moviesSlice = createSlice({
         movies: data,
     },
     reducers: {
+        // Membuat reducer updateMovies: untuk update movie         
         updateMovies(state, action) {
             state.movies = action.payload ;            
         },
+        /**
+         * action addMovie menerima 2 param: state dan action
+         * state berisi state movies saat ini
+         * action berisi payload atau data yang dikirim
+         */
         addMovie(state, action) {
             // addMovie to movies
             state.movies.push(action.payload);
