@@ -1,0 +1,25 @@
+{
+  "name": "frontend-programming",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node task\task.js",
+    "dev": "nodemon task.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizkyaprinanda/frontend-programming.git"
+  },
+  "author": "Rizky Aprinanda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rizkyaprinanda/frontend-programming/issues"
+  },
+  "homepage": "https://github.com/rizkyaprinanda/frontend-programming#readme",
+  "dependencies": {
+    "react-router-dom": "^6.11.1",
+    "styled-components": "^5.3.11"
+  }
+}
